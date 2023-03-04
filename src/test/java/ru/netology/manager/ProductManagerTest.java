@@ -36,6 +36,16 @@ public class ProductManagerTest {
     }
 
     @Test
+    public void removeProduct() {
+
+        manager.removeById(4);
+
+        Product[] expected = {one, two, three, fife, six, seven};
+        Product[] actual = repo.findAll();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
     public void SearchBySmartphoneFewName() {
         Product[] results = manager.searchBy("Mi");
 
@@ -90,4 +100,5 @@ public class ProductManagerTest {
         Product[] expected = {four, six};
         Assertions.assertArrayEquals(expected, results);
     }
+
 }
