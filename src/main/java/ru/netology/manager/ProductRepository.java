@@ -14,8 +14,7 @@ public class ProductRepository {
 
     public void removeById(int id) {
         if (findById(id) == null) {
-            System.out.println("Продукт с заданным id не найден");
-            return;
+            throw new NotFoundException(id);
         }
 
         Product[] tmp = new Product[items.length - 1];
